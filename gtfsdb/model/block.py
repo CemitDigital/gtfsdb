@@ -25,7 +25,7 @@ class Block(Base):
 
     __tablename__ = 'blocks'
 
-    id = Column(Integer, Sequence(None, optional=True), primary_key=True)
+    id = Column(Integer, Sequence('id_sequence', optional=True), primary_key=True)
     sequence = Column(Integer)
     block_id = Column(String(255), index=True, nullable=False)
     service_id = Column(String(255), index=True, nullable=False)

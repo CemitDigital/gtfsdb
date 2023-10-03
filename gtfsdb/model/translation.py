@@ -11,7 +11,7 @@ class Translation(Base):
 
     __tablename__ = 'translations'
 
-    id = Column(Integer, Sequence(None, optional=True), primary_key=True)
+    id = Column(Integer, Sequence('id_sequence', optional=True), primary_key=True)
     table_name = Column(String(255), nullable=False)
     field_name = Column(String(255), nullable=False)
     language = Column(String(255), nullable=False)

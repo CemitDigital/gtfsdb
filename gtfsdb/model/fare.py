@@ -29,7 +29,7 @@ class FareRule(Base):
 
     __tablename__ = 'fare_rules'
 
-    id = Column(Integer, Sequence(None, optional=True), primary_key=True)
+    id = Column(Integer, Sequence('id_sequence', optional=True), primary_key=True)
     fare_id = Column(String(255), index=True, nullable=False)
     route_id = Column(String(255))
     origin_id = Column(String(255))

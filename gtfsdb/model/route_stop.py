@@ -18,7 +18,7 @@ class RouteStop(Base, RouteStopBase):
     datasource = config.DATASOURCE_DERIVED
     __tablename__ = 'route_stops'
 
-    id = Column(Integer, Sequence(None, optional=True), primary_key=True)
+    id = Column(Integer, Sequence('id_sequence', optional=True), primary_key=True)
     route_id = Column(String(255), index=True, nullable=False)
     direction_id = Column(Integer, index=True, nullable=False)
     stop_id = Column(String(255), index=True, nullable=False)
