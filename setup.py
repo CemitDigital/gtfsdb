@@ -13,9 +13,10 @@ extras_require = dict(
     postgresql=postgresql_extras,
 )
 
+# Cemit change. Locking sqlalchemy to version 1.4 since the code expects it
 install_requires = [
     'geoalchemy2',
-    'sqlalchemy',
+    'sqlalchemy==1.4.52',
 ]
 
 setup(
