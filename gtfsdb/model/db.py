@@ -1,6 +1,6 @@
 from gtfsdb import config
 from gtfsdb import util
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import scoped_session, sessionmaker
 from contextlib import contextmanager
 
@@ -115,7 +115,10 @@ class Database(object):
 
         # TODO ... move to create() method
         try:
-            if self._schema:
+            inspector = inspect(self.engine)
+            existing_schema_names = inspector.get_schema_names()
+            raise Exception(existing_schema_names)
+            if self._schema and self._schema not in existing_schema_names:
                 from sqlalchemy.schema import CreateSchema
                 self.engine.execute(CreateSchema(self._schema), checkfirst=True)
         except Exception as e:
